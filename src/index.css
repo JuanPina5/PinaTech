@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-900 text-slate-200 font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    @apply bg-neon/30 text-white;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .text-gradient {
+    background: linear-gradient(120deg, #ffffff 0%, #5cb8ff 60%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .glass {
+    background: linear-gradient(180deg, rgba(20, 27, 46, 0.55), rgba(10, 12, 20, 0.55));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .border-glow {
+    box-shadow: 0 0 0 1px rgba(31, 139, 255, 0.18), 0 24px 60px -20px rgba(31, 139, 255, 0.25);
+  }
+  .neon-divider {
+    background: linear-gradient(90deg, transparent, rgba(31, 139, 255, 0.6), transparent);
+  }
+  .grid-bg {
+    background-image: linear-gradient(rgba(31, 139, 255, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 139, 255, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #05060a;
+}
+::-webkit-scrollbar-thumb {
+  background: #16263f;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1d3357;
+}
